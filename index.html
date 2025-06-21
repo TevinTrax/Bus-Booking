@@ -1,0 +1,3907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Booking</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<!-- css starts here -->
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 100%;
+        height: auto;
+        background-color: #f5f7fa;
+    }
+
+    body{
+        scroll-behavior: smooth;
+    }
+
+    /* start of homepage css */
+    .homepage{
+        width: 100%;
+        height: 100vh;
+        background-image: url(images/img2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .navbar1{
+        display: none;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 18vh;
+        display: flex;
+        background-color:#f5f7facc;
+    }
+
+    .logo{
+        width: 20vw;
+        height: 15vh;
+        margin: 8px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .menu{
+        width: 40vw;
+        height: 15vh;
+        margin-left: 150px;
+        margin-top: 6px;
+        display: flex;
+    }
+
+    .menu ul{
+        margin: auto;
+    }
+
+    .menu ul a{
+        color: #212529;
+        text-decoration: none;
+        margin: 15px;
+        padding: 2px;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .sidebar-content{
+        display: none;
+    }
+
+    .account{
+        width: 8vw;
+        height: 15vh;
+        margin-left: 150px;
+        margin-top: 6px;
+    }
+
+    .account i{
+        font-size: 30px;
+        color: #212529;
+        margin: 30px;
+    }
+
+    .account .dropdown{
+        position: relative;
+    }
+
+    .dropdown .dropdown-content{
+        position: absolute;
+        display: none;
+        width: 350px;
+        height: 270px;
+        background-color: #f5f7fa;
+        z-index: 1000;
+        margin-left: -150px;
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+
+    .dropdown-content form{
+        display: block;
+        width: 350px;
+        height: 250px;
+    }
+
+    .dropdown-content form h1{
+        margin: 10px;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .dropdown-content form label{
+        margin: 20px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .dropdown-content form input{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: inherit;
+    }
+
+    .dropdown-content form button{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border-radius: 5px;
+        border: none;
+        background-color: #28a745;
+    }
+
+    .dropdown-content form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .content{
+        width: 20vw;
+        height: 10vh;
+        margin-top: 150px;
+        margin-left: 200px;
+        background-color:#f5f7facc;
+        border-radius: 5px;
+    }
+
+    .content h1{
+        font-size: 22px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 20px;
+    }
+
+    .booking{
+        width: 70vw;
+        height: 30vh;
+        background-color:#f5f7facc;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        z-index: 1000;
+        margin: 20px auto;
+        border-radius: 5px;
+    }
+
+    .booking h2{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 20px;
+        color: #212529;
+    }
+
+    .booking h3{
+        display: none;
+    }
+
+    .booking .form{
+        display: flex;
+        width: 67vw;
+        height: 10vh;
+        margin: auto;
+    }
+
+    .booking .form form{
+        margin: auto;
+        display: flex;
+    }
+
+    .booking .form form .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .booking form label{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .booking form select{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 3px;
+        border-radius: 5px;
+    }
+
+    .booking form input{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 3px;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+
+    .booking form button{
+        width: 100px;
+        height: 30px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        margin: auto;
+    }
+    /* end of homepage css */
+
+    /* start of advert css */
+    .advert{
+        width: 100%;
+        height: 50vh;
+        display: flex;
+    }
+
+    /* start of advert1 css */
+    .advert1{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert1 .left{
+        width: 11vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/img3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert1 .right{
+        width: 14vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert1 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 5px;
+    }
+
+    .advert1 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 7px;
+    }
+    /* end of advert1 css */
+
+    /* start of advert2 css */
+    .advert2{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert2 .left{
+        width: 11vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/driver.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert2 .right{
+        width: 14vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert2 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 5px;
+    }
+
+    .advert2 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 7px;
+    }
+    /* end of advert2 css */
+
+    /* start of advert3 css */
+    .advert3{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert3 .left{
+        width: 11vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/cust.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert3 .right{
+        width: 14vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert3 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 5px;
+    }
+
+    .advert3 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 7px;
+    }
+    /* end of advert3 css */
+    /* end of advert css */
+
+    /* start of destinations css */
+    .destinations{
+        width: 100%;
+        height: auto;
+    }
+
+    .destinations h2{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 30px;
+        text-align: center;
+    }
+
+    .destinations .destination{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .destination a{
+        text-decoration: none;
+    }
+
+    .destination a .destin{
+        width: 30vw;
+        height: 40vh;
+        margin: 20px;
+        display: block;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+    }
+
+    /* start of top1 */
+    .destin .top1{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/ksm.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top1 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top1 */
+
+    /* start of top2 */
+    .destin .top2{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kach.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top2 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+       color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top2 */
+
+    /* start of top3 */
+    .destin .top3{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mombasa.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top3 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top3 */
+
+    /* start of top4 */
+    .destin .top4{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/eldy.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top4 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top4 */
+
+    /* start of top5 */
+    .destin .top5{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top5 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top5 */
+
+    /* start of top6 */
+    .destin .top6{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kit.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top6 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top6 */
+
+    /* start of top7 */
+    .destin .top7{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/Busia.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top7 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top7 */
+
+    /* start of top8 */
+    .destin .top8{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/malaba.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top8 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top8 */
+
+    /* start of top9 */
+    .destin .top9{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mumias.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top9 h2{
+        width: 7vw;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 7px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top9 */
+
+    .destin .bottom{
+        width: 30vw;
+        height: 8vh;
+    }
+
+    .destin .bottom h3{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+        padding: 7px;
+    }
+    /* end of destinations css */
+
+    /* start of contact css */
+    .contact{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
+
+    .contact .left{
+        width: 42vw;
+        height: 90vh;
+        margin: 50px;
+    }
+
+    .contact .left h3{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+    }
+
+    .contact .left p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form{
+        width: 40vw;
+        height: 70vh;
+        margin: auto;
+        display: block;
+    }
+
+    .contact .left form label{
+       font-size: 16px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       color: #212529;
+       margin: 10px;
+    }
+
+    .contact .left form input{
+        width: 25vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .contact .left form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form textarea{
+        width: 35vw;
+        height: 35vh;
+        margin: 10px;
+        resize: none;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border-radius: 5px;
+    }
+
+    .contact .left form button{
+        width: 30vw;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+
+    .contact .right{
+        width: 42vw;
+        height: 85vh;
+        margin: 50px;
+    }
+
+    .contact .right a{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 20px;
+        text-decoration: none;
+        color: #212529;
+        display: block;
+    }
+
+    /* controls all  media icons */
+    .media{
+        display: flex;
+    }
+
+    .media a{
+        text-decoration: none;
+        color: #212529;
+    }
+
+    .media a i{
+        font-size: 23px;
+    }
+    /* end of contact css */
+
+    /* start of content1 css */
+    .content1{
+        width: 100%;
+        height: auto;
+    }
+
+    .content1 h4{
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .conte{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url(images/Bus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .conte .cont{
+        width: 45vw;
+        height: 30vh;
+        margin: 30px;
+        z-index: 1000;
+        background-color:#f5f7fae0;
+        border-radius: 5px;
+    }
+
+    .cont h5{
+        font-size: 20px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .cont p{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        margin: 20px;
+    }
+    /* end of content1 css */
+
+    /* start of footer css */
+    .footer{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .foot{
+        width: 30vw;
+        height: 60vh;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot h4{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .foot a{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-decoration: none;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot .image{
+        width: 28vw;
+        height: 25vh;
+        margin: 10px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .foot .location{
+        width: 28vw;
+        height: 30vh;
+        margin: 10px;
+    }
+
+    .location p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+
+    .ftr{
+        width: 100%;
+        justify-content: baseline;
+        display: flex;
+    }
+
+    .ftr p{
+        width: 100%;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+    }
+    /* end of footer css */
+
+
+
+
+
+
+
+
+
+
+
+
+    /* start of media quries */
+     @media screen and (max-width: 1024px){
+    .container{
+        width: 100%;
+        height: auto;
+        background-color: #f5f7fa;
+    }
+
+    body{
+        scroll-behavior: smooth;
+    }
+
+    /* start of homepage css */
+    .homepage{
+        width: 100%;
+        height: 100vh;
+        background-image: url(images/img2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .navbar1{
+        display: none;
+    }
+
+
+    .navbar{
+        width: 100%;
+        height: 15vh;
+        display: flex;
+        background-color:#f5f7facc;
+    }
+
+    .logo{
+        width: 14vw;
+        height: 12vh;
+        margin: 8px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .menu{
+        width: 60vw;
+        height: 12vh;
+        margin-left: 60px;
+        display: flex;
+    }
+
+    .menu ul{
+        margin: auto;
+    }
+
+    .menu ul a{
+        color: #212529;
+        text-decoration: none;
+        margin: 15px;
+        padding: 2px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .sidebar-content{
+        display: none;
+    }
+
+    .account{
+        width: 8vw;
+        height: 12vh;
+        margin-left: 60px;
+    }
+
+    .account i{
+        font-size: 25px;
+        color: #212529;
+        margin: 20px;
+    }
+
+    .account .dropdown{
+        position: relative;
+    }
+
+    .dropdown .dropdown-content{
+        position: absolute;
+        display: none;
+        width: 350px;
+        height: 270px;
+        background-color: #f5f7fa;
+        z-index: 1000;
+        margin-left: -250px;
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+
+    .dropdown-content form{
+        display: block;
+        width: 350px;
+        height: 250px;
+    }
+
+    .dropdown-content form h1{
+        margin: 10px;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .dropdown-content form label{
+        margin: 20px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .dropdown-content form input{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: inherit;
+    }
+
+    .dropdown-content form button{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border-radius: 5px;
+        border: none;
+        background-color: #28a745;
+    }
+
+    .dropdown-content form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .content{
+        width: 18vw;
+        height: auto;
+        margin-top: 150px;
+        margin-left: 100px;
+        background-color:#f5f7facc;
+        border-radius: 5px;
+    }
+
+    .content h1{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 10px;
+    }
+
+    .booking{
+        width: 80vw;
+        height: 30vh;
+        background-color:#f5f7facc;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        z-index: 1000;
+        margin: 20px auto;
+        border-radius: 5px;
+    }
+
+    .booking h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 20px;
+        color: #212529;
+    }
+
+    .booking h3{
+        display: none;
+    }
+
+    .booking .form{
+        display: flex;
+        width: 78vw;
+        height: auto;
+        margin: auto;
+    }
+
+    .booking .form form{
+        margin: auto;
+        display: flex;
+    }
+
+    .booking .form form .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+    }
+
+    .booking form label{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .booking form select{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    .booking form input{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+
+    .booking form button{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        padding: 3px;
+        margin: auto;
+    }
+    /* end of homepage css */
+
+    /* start of advert css */
+    .advert{
+        width: 100%;
+        height: 50vh;
+        display: flex;
+    }
+
+    /* start of advert1 css */
+    .advert1{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert1 .left{
+        width: 10vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/img3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert1 .right{
+        width: 12vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert1 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 3px;
+    }
+
+    .advert1 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert1 css */
+
+    /* start of advert2 css */
+    .advert2{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert2 .left{
+        width: 10vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/driver.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert2 .right{
+        width: 12vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert2 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 5px;
+    }
+
+    .advert2 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 7px;
+    }
+    /* end of advert2 css */
+
+    /* start of advert3 css */
+    .advert3{
+        width: 30vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert3 .left{
+        width: 10vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/cust.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert3 .right{
+        width: 12vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert3 .right h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 5px;
+    }
+
+    .advert3 .right p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 7px;
+    }
+    /* end of advert3 css */
+    /* end of advert css */
+
+    /* start of destinations css */
+    .destinations{
+        width: 100%;
+        height: auto;
+    }
+
+    .destinations h2{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .destinations .destination{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .destination a{
+        text-decoration: none;
+    }
+
+    .destination a .destin{
+        width: 30vw;
+        height: 40vh;
+        margin: 16px;
+        display: block;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+    }
+
+    /* start of top1 */
+    .destin .top1{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/ksm.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top1 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top1 */
+
+    /* start of top2 */
+    .destin .top2{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kach.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top2 h2{
+        width: 100px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top2 */
+
+    /* start of top3 */
+    .destin .top3{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mombasa.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top3 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top3 */
+
+    /* start of top4 */
+    .destin .top4{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/eldy.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top4 h2{
+        width: 80px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top4 */
+
+    /* start of top5 */
+    .destin .top5{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top5 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top5 */
+
+    /* start of top6 */
+    .destin .top6{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kit.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top6 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top6 */
+
+    /* start of top7 */
+    .destin .top7{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/Busia.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top7 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top7 */
+
+    /* start of top8 */
+    .destin .top8{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/malaba.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top8 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top8 */
+
+    /* start of top9 */
+    .destin .top9{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mumias.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top9 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top9 */
+
+    .destin .bottom{
+        width: 30vw;
+        height: 8vh;
+    }
+
+    .destin .bottom h3{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+        padding: 7px;
+    }
+    /* end of destinations css */
+
+    /* start of contact css */
+    .contact{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
+
+    .contact .left{
+        width: 42vw;
+        height: 90vh;
+        margin: 40px;
+    }
+
+    .contact .left h3{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+    }
+
+    .contact .left p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form{
+        width: 40vw;
+        height: 70vh;
+        margin: auto;
+        display: block;
+    }
+
+    .contact .left form label{
+       font-size: 14px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       color: #212529;
+       margin: 10px;
+    }
+
+    .contact .left form input{
+        width: 25vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .contact .left form p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form textarea{
+        width: 35vw;
+        height: 35vh;
+        margin: 10px;
+        resize: none;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border-radius: 5px;
+    }
+
+    .contact .left form button{
+        width: 30vw;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+
+    .contact .right{
+        width: 42vw;
+        height: 85vh;
+        margin: 50px;
+    }
+
+    .contact .right a{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 20px;
+        text-decoration: none;
+        color: #212529;
+        display: block;
+    }
+
+    /* controls all  media icons */
+    .media{
+        display: flex;
+    }
+
+    .media a{
+        text-decoration: none;
+        color: #212529;
+    }
+
+    .media a i{
+        font-size: 20px;
+    }
+    /* end of contact css */
+
+    /* start of content1 css */
+    .content1{
+        width: 100%;
+        height: auto;
+    }
+
+    .content1 h4{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .conte{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url(images/Bus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .conte .cont{
+        width: 44vw;
+        height: 30vh;
+        margin: 30px;
+        z-index: 1000;
+        background-color:#f5f7fae0;
+        border-radius: 5px;
+    }
+
+    .cont h5{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .cont p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        margin: 20px;
+    }
+    /* end of content1 css */
+
+    /* start of footer css */
+    .footer{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .foot{
+        width: 30vw;
+        height: 60vh;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot h4{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .foot a{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-decoration: none;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot .image{
+        width: 28vw;
+        height: 25vh;
+        margin: 10px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .foot .location{
+        width: 28vw;
+        height: 30vh;
+        margin: 10px;
+    }
+
+    .location p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+
+    .ftr{
+        width: 100%;
+        justify-content: baseline;
+        display: flex;
+    }
+
+    .ftr p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+    }
+    /* end of footer css */
+}
+
+
+
+
+    @media screen and (max-width: 770px){
+    .container{
+        width: 100%;
+        height: auto;
+        background-color: #f5f7fa;
+    }
+
+    body{
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+    }
+
+    /* start of homepage css */
+    .homepage{
+        width: 100%;
+        height: 100vh;
+        background-image: url(images/img2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .navbar1{
+        display: none;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 15vh;
+        display: flex;
+        background-color:#f5f7facc;
+    }
+
+    .logo{
+        width: 14vw;
+        height: 12vh;
+        margin: 8px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .menu{
+        width: 60vw;
+        height: 12vh;
+        display: flex;
+    }
+
+    .menu ul{
+        margin: auto;
+    }
+
+    .menu ul a{
+        color: #212529;
+        text-decoration: none;
+        margin: 10px;
+        padding: 2px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .sidebar-content{
+        display: none;
+    }
+
+    .account{
+        width: 8vw;
+        height: 12vh;
+    }
+
+    .account i{
+        font-size: 25px;
+        color: #212529;
+        margin: 20px;
+    }
+
+    .account .dropdown{
+        position: relative;
+    }
+
+    .dropdown .dropdown-content{
+        position: absolute;
+        display: none;
+        width: 350px;
+        height: 270px;
+        background-color: #f5f7fa;
+        z-index: 1000;
+        margin-left: -300px;
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+
+    .dropdown-content form{
+        display: block;
+        width: 350px;
+        height: 250px;
+    }
+
+    .dropdown-content form h1{
+        margin: 10px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .dropdown-content form label{
+        margin: 20px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .dropdown-content form input{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: inherit;
+    }
+
+    .dropdown-content form button{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border-radius: 5px;
+        border: none;
+        background-color: #28a745;
+    }
+
+    .dropdown-content form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .content{
+        width: 20vw;
+        height: auto;
+        margin-top: 150px;
+        margin-left: 75px;
+        background-color:#f5f7facc;
+        border-radius: 5px;
+    }
+
+    .content h1{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 10px;
+    }
+
+    .booking{
+        width: 80vw;
+        height: 30vh;
+        background-color:#f5f7facc;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        z-index: 1000;
+        margin: 20px auto;
+        border-radius: 5px;
+    }
+
+    .booking h2{
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 15px;
+        color: #212529;
+    }
+
+    .booking h3{
+        display: none;
+    }
+
+    .booking .form{
+        display: flex;
+        width: 78vw;
+        height: auto;
+        margin: auto;
+    }
+
+    .booking .form form{
+        margin: auto;
+        display: flex;
+    }
+
+    .booking .form form .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .booking form label{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .booking form select{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    .booking form input{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+
+    .booking form button{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        padding: 3px;
+        margin: auto;
+    }
+    /* end of homepage css */
+
+    /* start of advert css */
+    .advert{
+        width: 100%;
+        height: 50vh;
+        display: flex;
+    }
+
+    /* start of advert1 css */
+    .advert1{
+        width: 40vw;
+        height: 30vh;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert1 .left{
+        width: 8vw;
+        height: 29vh;
+        float: left;
+        background-image: url(images/img3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert1 .right{
+        width: 11vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert1 .right h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 3px;
+    }
+
+    .advert1 .right p{
+        font-size: 12px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert1 css */
+
+    /* start of advert2 css */
+    .advert2{
+        width: 40vw;
+        height: 30vh;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert2 .left{
+        width: 8vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/driver.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert2 .right{
+        width: 11vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert2 .right h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .advert2 .right p{
+        font-size: 12px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert2 css */
+
+    /* start of advert3 css */
+    .advert3{
+        width: 40vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert3 .left{
+        width: 8vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/cust.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert3 .right{
+        width: 11vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert3 .right h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .advert3 .right p{
+        font-size: 12px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert3 css */
+    /* end of advert css */
+
+    /* start of destinations css */
+    .destinations{
+        width: 100%;
+        height: auto;
+    }
+
+    .destinations h2{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .destinations .destination{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .destination a{
+        text-decoration: none;
+    }
+
+    .destination a .destin{
+        width: 30vw;
+        height: 40vh;
+        margin: 12px;
+        display: block;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+    }
+
+    /* start of top1 */
+    .destin .top1{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/ksm.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top1 h2{
+        width: 70px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top1 */
+
+    /* start of top2 */
+    .destin .top2{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kach.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top2 h2{
+        width: 100px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top2 */
+
+    /* start of top3 */
+    .destin .top3{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mombasa.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top3 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top3 */
+
+    /* start of top4 */
+    .destin .top4{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/eldy.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top4 h2{
+        width: 80px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top4 */
+
+    /* start of top5 */
+    .destin .top5{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top5 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top5 */
+
+    /* start of top6 */
+    .destin .top6{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/kit.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top6 h2{
+        width: 70px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top6 */
+
+    /* start of top7 */
+    .destin .top7{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/Busia.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top7 h2{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top7 */
+
+    /* start of top8 */
+    .destin .top8{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/malaba.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top8 h2{
+        width: 75px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top8 */
+
+    /* start of top9 */
+    .destin .top9{
+        width: 30vw;
+        height: 32vh;
+        background-image: url(images/mumias.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top9 h2{
+        width: 75px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top9 */
+
+    .destin .bottom{
+        width: 30vw;
+        height: 8vh;
+    }
+
+    .destin .bottom h3{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+        padding: 7px;
+    }
+    /* end of destinations css */
+
+    /* start of contact css */
+    .contact{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
+
+    .contact .left{
+        width: 42vw;
+        height: 90vh;
+        margin: 40px;
+    }
+
+    .contact .left h3{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .contact .left p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form{
+        width: 40vw;
+        height: 70vh;
+        margin: auto;
+        display: block;
+    }
+
+    .contact .left form label{
+       font-size: 14px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       color: #212529;
+       margin: 10px;
+    }
+
+    .contact .left form input{
+        width: 35vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .contact .left form p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form textarea{
+        width: 35vw;
+        height: 35vh;
+        margin: 10px;
+        resize: none;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border-radius: 5px;
+    }
+
+    .contact .left form button{
+        width: 37vw;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+
+    .contact .right{
+        width: 42vw;
+        height: 85vh;
+        margin: 50px;
+    }
+
+    .contact .right a{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 20px;
+        text-decoration: none;
+        color: #212529;
+        display: block;
+    }
+
+    /* controls all  media icons */
+    .media{
+        display: flex;
+    }
+
+    .media a{
+        text-decoration: none;
+        color: #212529;
+        margin: 5px;
+    }
+
+    .media a i{
+        font-size: 20px;
+    }
+    /* end of contact css */
+
+    /* start of content1 css */
+    .content1{
+        width: 100%;
+        height: auto;
+    }
+
+    .content1 h4{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .conte{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url(images/Bus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .conte .cont{
+        width: 44vw;
+        height: 30vh;
+        margin: 20px;
+        z-index: 1000;
+        background-color:#f5f7fae0;
+        border-radius: 5px;
+    }
+
+    .cont h5{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .cont p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        margin: 15px;
+    }
+    /* end of content1 css */
+
+    /* start of footer css */
+    .footer{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .foot{
+        width: 30vw;
+        height: 60vh;
+        margin: 15px;
+        display: block;
+    }
+
+    .foot h4{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .foot a{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-decoration: none;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot .image{
+        width: 28vw;
+        height: 25vh;
+        margin: 10px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .foot .location{
+        width: 28vw;
+        height: 30vh;
+        margin: 10px;
+    }
+
+    .location p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+
+    .ftr{
+        width: 100%;
+        justify-content: baseline;
+        display: flex;
+    }
+
+    .ftr p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+    }
+    /* end of footer css */
+}
+
+
+
+
+
+ @media screen and (max-width: 430px){
+    .container{
+        width: 100%;
+        height: auto;
+        background-color: #f5f7fa;
+    }
+
+    body{
+        scroll-behavior: smooth;
+    }
+
+    /* start of homepage css */
+    .homepage{
+        width: 100%;
+        height: 100vh;
+        background-image: url(images/img2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .navbar1{
+        display: flex;
+        width: 100%;
+        height: 7vh;
+        background-color:#f5f7facc;
+    }
+
+    .navbar1 button{
+        margin: auto;
+        width: 60px;
+        padding: 2px;
+        height: 30px;
+        background-color: #28a745;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+    }
+
+
+    .navbar{
+        width: 100%;
+        height: 15vh;
+        display: flex;
+        z-index: 1000;
+    }
+
+    .sidebar{
+        display: block;
+    }
+
+    .sidebar i{
+        font-size: 35px;
+        margin: 15px auto;
+    }
+
+    .sidebar .sidebar-content{
+        background-color:#f5f7facc;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 50vh;
+        z-index: 1000;
+        display: block;
+        overflow-x: hidden;
+        border: 1px solid blue;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .sidebar.sidebar-content a{
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        padding: 5px;
+        color: #212529;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .sidebar-content i{
+        font-size: 15px;
+    }
+
+    .logo{
+        width: 40vw;
+        height: 12vh;
+        margin: 8px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: auto;
+    }
+
+    .menu{
+        display: none;
+        width: 60vw;
+        height: 12vh;
+    }
+
+    .menu ul{
+        display: none;
+        margin: auto;
+
+    }
+
+    .menu ul a{
+        color: #212529;
+        text-decoration: none;
+        margin: 10px;
+        padding: 2px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .account{
+        display: none;
+        width: 10vw;
+        height: 12vh;
+        right: 0;
+    }
+
+    .account i{
+        font-size: 25px;
+        color: #212529;
+        margin: 13px;
+    }
+
+    .account .dropdown{
+        position: relative;
+    }
+
+    .dropdown .dropdown-content{
+        position: absolute;
+        display: none;
+        width: 350px;
+        height: 270px;
+        background-color: #f5f7fa;
+        z-index: 1000;
+        margin-left: -300px;
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+
+    .dropdown-content form{
+        display: block;
+        width: 350px;
+        height: 250px;
+    }
+
+    .dropdown-content form h1{
+        margin: 10px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .dropdown-content form label{
+        margin: 20px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .dropdown-content form input{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: inherit;
+    }
+
+    .dropdown-content form button{
+        width: 330px;
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        border-radius: 5px;
+        border: none;
+        background-color: #28a745;
+    }
+
+    .dropdown-content form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .content{
+        margin-top: 20px;
+        width: 40vw;
+        height: auto;
+        background-color:#f5f7facc;
+        border-radius: 5px;
+    }
+
+    .content h1{
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 10px;
+    }
+
+    .booking{
+        width: 62vw;
+        height: auto;
+        background-color:#f5f7facc;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        z-index: 500;
+        margin: 20px auto;
+        border-radius: 5px;
+    }
+
+    .booking h2{
+        display: none;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 15px;
+        color: #212529;
+    }
+
+    .booking h3{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 15px;
+        color: #212529;
+        display: flex;
+    }
+
+    .booking .form{
+        display: flex;
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+
+    .booking .form form{
+        margin: auto;
+        display: block;
+    }
+
+    .booking .form form .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .booking form label{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+    }
+
+    .booking form select{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    .booking form input{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+
+    .booking form button{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        padding: 3px;
+        margin: 10px;
+    }
+    /* end of homepage css */
+
+    /* start of advert css */
+    .advert{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* start of advert1 css */
+    .advert1{
+        width: 75vw;
+        height: 30vh;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+        display: block;
+    }
+
+    .advert1 .left{
+        display: none;
+        width: 8vw;
+        height: 29vh;
+        float: left;
+        background-image: url(images/img3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert1 .right{
+        width: auto;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert1 .right h2{
+        text-align: center;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin-top: 50px;
+    }
+
+    .advert1 .right p{
+        text-align: center;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert1 css */
+
+    /* start of advert2 css */
+    .advert2{
+        width: 75vw;
+        height: 30vh;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert2 .left{
+        display: none;
+        width: 8vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/driver.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert2 .right{
+        width: auto;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert2 .right h2{
+        margin-top: 50px;
+        text-align: center;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .advert2 .right p{
+        text-align: center;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert2 css */
+
+    /* start of advert3 css */
+    .advert3{
+        width: 75vw;
+        height: 30vh;
+        margin: 50px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        border-radius: 5px;
+    }
+
+    .advert3 .left{
+        display: none;
+        width: 8vw;
+        height: 29vh;
+        margin: 2px;
+        float: left;
+        background-image: url(images/cust.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .advert3 .right{
+        width: 74vw;
+        height: 30vh;
+        float: right;
+    }
+
+    .advert3 .right h2{
+        margin-top: 50px;
+        text-align: center;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+    }
+
+    .advert3 .right p{
+        text-align: center;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 5px;
+    }
+    /* end of advert3 css */
+    /* end of advert css */
+
+    /* start of destinations css */
+    .destinations{
+        width: 100%;
+        height: auto;
+    }
+
+    .destinations h2{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .destinations .destination{
+        width: 100%;
+        height: auto;
+        display: block;
+        flex-wrap: wrap;
+    }
+
+    .destination a{
+        text-decoration: none;
+    }
+
+    .destination a .destin{
+        width: 90vw;
+        height: 40vh;
+        margin: 20px;
+        display: block;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+    }
+
+    /* start of top1 */
+    .destin .top1{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/ksm.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top1 h2{
+        width: 70px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top1 */
+
+    /* start of top2 */
+    .destin .top2{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/kach.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top2 h2{
+        width: 100px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top2 */
+
+    /* start of top3 */
+    .destin .top3{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/mombasa.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top3 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top3 */
+
+    /* start of top4 */
+    .destin .top4{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/eldy.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top4 h2{
+        width: 80px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top4 */
+
+    /* start of top5 */
+    .destin .top5{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top5 h2{
+        width: 90px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top5 */
+
+    /* start of top6 */
+    .destin .top6{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/kit.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top6 h2{
+        width: 70px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top6 */
+
+    /* start of top7 */
+    .destin .top7{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/Busia.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top7 h2{
+        width: 60px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top7 */
+
+    /* start of top8 */
+    .destin .top8{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/malaba.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top8 h2{
+        width: 75px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top8 */
+
+    /* start of top9 */
+    .destin .top9{
+        width: 90vw;
+        height: 32vh;
+        background-image: url(images/mumias.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .destin .top9 h2{
+        width: 75px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        color: #f5f7fa;
+        background-color: #007bff;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    /* end of top9 */
+
+    .destin .bottom{
+        width: 90vw;
+        height: 8vh;
+    }
+
+    .destin .bottom h3{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+        padding: 7px;
+    }
+    /* end of destinations css */
+
+    /* start of contact css */
+    .contact{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .contact .left{
+        width: 80vw;
+        height: auto;
+    }
+
+    .contact .left h3{
+        text-align: center;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .contact .left p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form{
+        width: 65vw;
+        height: auto;
+        margin: auto;
+        display: block;
+    }
+
+    .contact .left form label{
+       font-size: 16px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       color: #212529;
+       margin: 10px;
+    }
+
+    .contact .left form input{
+        width: 60vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .contact .left form p{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        margin: 10px;
+    }
+
+    .contact .left form textarea{
+        width: 60vw;
+        height: 35vh;
+        margin: 10px;
+        resize: none;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: inherit;
+        border-radius: 5px;
+    }
+
+    .contact .left form button{
+        width: 37vw;
+        padding: 5px;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #28a745;
+        color: #f5f7fa;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+
+    .contact .right{
+        width: 80vw;
+        height: auto;
+    }
+
+    .contact .right a{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-decoration: none;
+        color: #212529;
+        display: block;
+    }
+    /* end of contact css */
+
+    /* start of content1 css */
+    .content1{
+        width: 100%;
+        height: auto;
+    }
+
+    .content1 h4{
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .conte{
+        width: 100%;
+        height: auto;
+        display: block;
+        flex-wrap: wrap;
+        background-image: url(images/Bus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .conte .cont{
+        width: 90vw;
+        height: 25vh;
+        margin: 20px;
+        z-index: 1000;
+        background-color:#f5f7fae0;
+        border-radius: 5px;
+    }
+
+    .cont h5{
+        text-align: center;
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 20px;
+    }
+
+    .cont p{
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        padding: 2px;
+        margin: 10px;
+    }
+    /* end of content1 css */
+
+    /* start of footer css */
+    .footer{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .foot{
+        width: 90vw;
+        height: 60vh;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot h4{
+        font-size: 16px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #007bff;
+        margin: 10px;
+    }
+
+    .foot a{
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-decoration: none;
+        margin: 20px;
+        display: block;
+    }
+
+    .foot .image{
+        width: 95%;
+        height: 25vh;
+        margin: 10px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .foot .location{
+        width: 95%;
+        height: 30vh;
+        margin: 10px;
+    }
+
+    .location p{
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+
+    .ftr{
+        width: 100%;
+        justify-content: baseline;
+        display: flex;
+    }
+
+    .ftr p{
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #212529;
+        text-align: center;
+    }
+    /* end of footer css */
+}
+    /* end of media queries */
+</style>
+<!-- css ends here -->
+<body>
+    <div class="container">
+        <!-- start of homepage -->
+        <div class="homepage">
+            <div class="navbar1">
+                <button>Sign Up</button>
+                <button>Login</button>
+            </div>
+            <div class="navbar">
+
+                <!-- sidebar -->
+                 <div class="sidebar" id="sidebar">
+                    <i class="fa-solid fa-bars" onclick="openSidebar()"></i>                    
+                </div>
+
+                <div class="sidebar-content" id="sidebar">
+                    <i class="fa-solid fa-xmark" onclick="closeSidebar()"></i>
+                    <a href="">Home</a>
+                    <a href="">Hire Bus</a>
+                    <a href="">Parcels</a>
+                    <a href="">Contact Us</a>
+                    <a href="">About Us</a>
+                </div>
+
+                <script>
+                    function openSidebar() {
+                        document.getElementById("sidebar").style.width='200px';
+                    }
+                    function closeSidebar() {
+                        document.getElementById("sidebar").style.width='0';
+                    }
+                </script>
+
+               
+                <div class="logo"></div>
+                <div class="menu">
+                    <ul>
+                        <a href="">Home</a>
+                        <a href="">Hire Bus</a>
+                        <a href="">Parcels</a>
+                        <a href="">Contact Us</a>
+                        <a href="">About Us</a>
+                    </ul>
+                </div>
+                <div class="account">
+                    <div class="dropdown">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="dropdown-content">
+                            <form>
+                                <h1>Sign In</h1>
+                                <label>Enter Your Username</label>
+                                <input type="text" placeholder="Enter Your Username">
+                                <label>Enter Password</label>
+                                <input type="password" placeholder="Enter Your Password">
+                                <button>LOGIN</button>
+                                <P>Don't have an account? <a href="">Sign Up</a></P>
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="content">
+                <h1>Travel In Style.</h1>
+            </div>
+            <div class="booking">
+                <h2>Let Primeline Coaches take the wheel for your next journey — Choose Destination.</h2>
+                <h3>Your Journey Starts Here — Book Now!</h3>
+                <div class="form">
+                    <form>
+                        <div class="form-group">
+                            <label>Departure From :</label>
+                            <select>
+                                <option>Select</option>
+                                <option>Nairobi</option>
+                                <option>Mombasa</option>
+                                <option>Nakuru</option>
+                                <option>Eldoret</option>
+                                <option>Kericho</option>
+                                <option>Kisumu</option>
+                                <option>Bungoma</option>
+                                <option>Malaba</option>
+                                <option>Siaya</option>
+                                <option>Homabay</option>
+                                <option>Kisii</option>
+                                <option>Machakos</option>
+                                <option>Nyeri</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Travelling To :</label>
+                            <select>
+                                <option>Select</option>
+                                <option>Malaba</option>
+                                <option>Siaya</option>
+                                <option>Kisumu</option>
+                                <option>Kisii</option>
+                                <option>Bungoma</option>
+                                <option>Nakuru</option>
+                                <option>Eldoret</option>
+                                <option>Kericho</option>
+                                <option>Nyeri</option>
+                                <option>Machakos</option>
+                                <option>Mombasa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Departure Date :</label>
+                            <input type="date" min="2025" max="2026">
+                        </div>
+                        <button>BOOK NOW</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- end of homepage -->
+
+        <!-- start of advert -->
+        <div class="advert">
+            <div class="advert1">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Travel in Comfort</h2>
+                    <p>Our Buses have large and comfortable seats.</p>
+                </div>
+            </div>
+            <div class="advert2">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Arrive in Time</h2>
+                    <p>We've highly trained Drivers to give you a smooth journey to your destination.</p>
+                </div>
+            </div>
+            <div class="advert3">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Quality Services</h2>
+                    <p>We treat each customer equally</p>
+                </div>
+            </div>
+        </div>
+        <!-- end of advert -->
+
+        <!-- start of destinations -->
+        <div class="destinations">
+            <h2>Our Destinations</h2>
+            <div class="destination">
+                <a href="">
+                    <div class="destin">
+                        <div class="top1">
+                            <h2>KISUMU</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Kisumu</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top2">
+                            <h2>KAKAMEGA</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Kakamega</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top3">
+                            <h2>MOMBASA</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Mombasa</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top4">
+                            <h2>ELDORET</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Eldoret</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top5">
+                            <h2>BUNGOMA</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Bungoma</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top6">
+                            <h2>KITALE</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Kitale</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top7">
+                            <h2>BUSIA</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Busia</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top8">
+                            <h2>MALABA</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Malaba</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="destin">
+                        <div class="top9">
+                            <h2>MUMIAS</h2>
+                        </div>
+                        <div class="bottom">
+                            <h3>Nairobi to Mumias</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- end of destinations -->
+
+        <!-- start of contact -->
+        <div class="contact">
+            <div class="left">
+                <h3>CONTACT US</h3>
+                <p>Chat with us and we'll reply immediately</p>
+                <form>
+                    <label>Enter Your Name</label>
+                    <input type="text" placeholder="Enter Your Full Names">
+                    <label>Enter Your Email</label>
+                    <input type="email" placeholder="Enter Your Email">
+                    <p>Message</p>
+                    <textarea placeholder="Write your message here..."></textarea>
+                    <button>Send Message</button>
+                </form>
+            </div>
+            <div class="right">
+                <a href="tel:+254792201245"><i class="fa-solid fa-phone"></i> 0792201245</a>
+                <a href="mailto:tevintrax@gmail.com"><i class="fa-solid fa-envelope"></i> tevintrax@gmail.com</a>
+                <div class="media">
+                    <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                    <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- end of contact -->
+
+        <!-- start of content1 -->
+        <div class="content1">
+            <h4>Why Choose PrimeLine Coaches?</h4>
+            <div class="conte">
+                <div class="cont">
+                    <h5>1. Reliable and Punctual Service</h5>
+                    <p>We pride ourselves on being on time, every time.
+                     With a reputation for punctuality and reliability, 
+                     you can count on Primeline Coaches to get you where you need to go — stress-free.</p>
+                </div>
+                <div class="cont">
+                    <h5>2. Safety First</h5>
+                    <p>Safety is our top priority. 
+                    All our vehicles undergo regular inspections and maintenance to meet the highest safety standards.</p>
+                </div>
+                <div class="cont">
+                    <h5>3. Affordable Pricing</h5>
+                    <p>We offer competitive rates without compromising quality. 
+                    Ask us about discounts for group travel, schools, and long-term contracts.</p>
+                </div>
+                <div class="cont">
+                    <h5>4. Environmentally Conscious</h5>
+                    <p>Our commitment to eco-friendly travel means 
+                    we use low-emission vehicles and strive to reduce our environmental impact.</p>
+                </div>
+            </div>
+        </div>
+        <!-- end of content1 -->
+
+        <!-- start of footer -->
+        <div class="footer">
+            <div class="foot">
+                <div class="image"></div>
+                <div class="location">
+                    <p>PrimeLine Coaches HQ, Outerring RD, Allsops</p>
+                    <p>P.O BOX 1290-5670</p>
+                    <p>Designed by <i>Echakara Tevin</i>.</p>
+                </div>
+            </div>
+            <div class="foot">
+                <h4>Our Company</h4>
+                <a href="">About Us</a>
+                <a href="">Contact Us</a>
+                <a href="">Terms and Conditions</a>
+                <a href="">Privacy Policy</a>
+                <h4>Our Contacts</h4>
+                <a href="tel:+254792201245"><i class="fa-solid fa-phone"></i> 0792201245</a>
+                <a href="mailto:tevintrax@gmail.com"><i class="fa-solid fa-envelope"></i> tevintrax@gmail.com</a>
+            </div>
+            <div class="foot">
+                <h4>Top Routes</h4>
+                <a href="">Nairobi to Mombasa</a>
+                <a href="">Bungoma to Nairobi</a>
+                <a href="">Malaba to Nairobi</a>
+                <a href="">Mombasa to Nairobi</a>
+            </div>
+        </div>
+        <div class="ftr">
+            <p>&copy; 2025. All rights reserved.</p>
+        </div>
+        <!-- end of footer -->
+    </div>
+</body>
+</html>
